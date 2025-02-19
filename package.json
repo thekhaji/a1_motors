@@ -1,8 +1,8 @@
 {
   "name": "a1_motors",
   "version": "1.0.0",
-  "description": "This is a1_motors project  backend ",
-  "main": "src/server.ts",   
+  "description": "This is a1_motors project  backend",
+  "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
     "start:dev": "nodemon --exec ts-node src/server.ts",
@@ -12,6 +12,7 @@
   "author": "Andrew",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "moment": "^2.30.1"
   },
   "devDependencies": {
