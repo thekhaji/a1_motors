@@ -6,6 +6,8 @@ const showroomController: T = {};
 
 showroomController.goHome = (req: Request, res: Response) => {
     try {
+        console.log("goHome");
+        
         res.send("Home Page!");
     } catch (error) {
         console.log("Error, goHome:", error);
@@ -14,6 +16,8 @@ showroomController.goHome = (req: Request, res: Response) => {
 
 showroomController.getLogin = (req: Request, res: Response) => {
     try {
+        console.log("getLogin");
+
         res.send("Login Page!");
     } catch (error) {
         console.log("Error, getLogin:", error);
@@ -22,6 +26,8 @@ showroomController.getLogin = (req: Request, res: Response) => {
 
 showroomController.getSignup = (req: Request, res: Response) => {
     try {
+        console.log("getSignup");
+
         res.send("Signup Page!");
     } catch (error) {
         console.log("Error, getSignup:", error);
