@@ -9,6 +9,37 @@ class MemberService{
     constructor(){
         this.memberModel = MemberModel;
     }
+    /** SPA **/
+    public async signup(input: MemberInput ): Promise<Member> {
+        
+        const salt = await bcrypt.genSalt();
+        input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
+        try {
+            const result = await this.memberModel.create(input);
+            result.memberPassword = "";
+            return result.toJSON();
+        } catch (error) {
+            console.log("Error, model:signup", error);
+            throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
+        }
+    }
+
+    public async login(input: LoginInput): Promise<Member>{
+        const member = await this.memberModel
+            .findOne(
+                {memberNick: input.memberNick},
+                {memberNick: 1, memberPassword: 1}
+            )
+            .exec();
+        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        
+        const ismatch = await bcrypt.compare(input.memberPassword, member.memberPassword);
+        if(!ismatch) throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);        
+
+        return await this.memberModel.findById(member._id).exec();
+    }
+
+    /** BSSR **/
 
     public async processSignup(input: MemberInput ): Promise<Member> {
         const exist = await this.memberModel.findOne({memberType: MemberType.SHOWROOM}).exec();
@@ -36,12 +67,10 @@ class MemberService{
         
         const ismatch = await bcrypt.compare(input.memberPassword, member.memberPassword);
         if(!ismatch) throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);
-        
-        console.log("member:", member);
 
-        return member;
+        return await this.memberModel.findById(member._id).exec();
     }
 
-}
+} 
 
 export default MemberService;

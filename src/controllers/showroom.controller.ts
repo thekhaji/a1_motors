@@ -17,29 +17,6 @@ showroomController.goHome = (req: Request, res: Response) => {
     }
 };
 
-showroomController.getLogin = (req: Request, res: Response) => {
-    try {
-        console.log("getLogin");
-
-        res.send("Login Page!");
-    } catch (error) {
-        console.log("Error, getLogin:", error);
-    }
-};
-
-showroomController.processLogin = async (req: Request, res: Response) => {
-    try {
-        console.log("processLogin");
-        console.log("body:", req.body);
-        const input: LoginInput = req.body;
-        const result = await memberService.porcessLogin(input);
-        res.send("DONE!");
-    } catch (error) {
-        console.log("Error, processLogin:", error);
-        res.send(error);
-    }
-};
-
 showroomController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
@@ -65,5 +42,29 @@ showroomController.processSignup = async (req: Request, res: Response) => {
         res.send(error);
     }
 };
+
+showroomController.getLogin = (req: Request, res: Response) => {
+    try {
+        console.log("getLogin");
+
+        res.send("Login Page!");
+    } catch (error) {
+        console.log("Error, getLogin:", error);
+    }
+};
+
+showroomController.processLogin = async (req: Request, res: Response) => {
+    try {
+        console.log("processLogin");
+        console.log("body:", req.body);
+        const input: LoginInput = req.body;
+        const result = await memberService.porcessLogin(input);
+        res.send("DONE!");
+    } catch (error) {
+        console.log("Error, processLogin:", error);
+        res.send(error);
+    }
+};
+
 
 export default showroomController;
