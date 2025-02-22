@@ -24,6 +24,15 @@ showroomController.getLogin = (req: Request, res: Response) => {
     }
 };
 
+showroomController.processLogin = (req: Request, res: Response) => {
+    try {
+        console.log("processLogin");
+        res.send("DONE!");
+    } catch (error) {
+        console.log("Error, processLogin:", error);
+    }
+};
+
 showroomController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
@@ -31,6 +40,15 @@ showroomController.getSignup = (req: Request, res: Response) => {
         res.send("Signup Page!");
     } catch (error) {
         console.log("Error, getSignup:", error);
+    }
+};
+
+showroomController.processSignup = (req: Request, res: Response) => {
+    try {
+        console.log("processSignup");
+        res.send("DONE!");
+    } catch (error) {
+        console.log("Error, processSignup:", error);
     }
 };
 
