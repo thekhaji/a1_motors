@@ -11,7 +11,7 @@ showroomController.goHome = (req: Request, res: Response) => {
     try {
         console.log("goHome");
         
-        res.send("Home Page!");
+        res.render("home");
     } catch (error) {
         console.log("Error, goHome:", error);
     }
@@ -21,7 +21,7 @@ showroomController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
 
-        res.send("Signup Page!");
+        res.render("signup");
     } catch (error) {
         console.log("Error, getSignup:", error);
     }
@@ -47,7 +47,7 @@ showroomController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("getLogin");
 
-        res.send("Login Page!");
+        res.render("login");
     } catch (error) {
         console.log("Error, getLogin:", error);
     }
