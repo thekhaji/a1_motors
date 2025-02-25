@@ -39,6 +39,7 @@ app.use(function(req,res,next){
     // const sessionInstance = req.session as T;
     // res.locals.member = sessionInstance.member;
     res.locals.member = (req.session as T).member ; // req.session comes from "express-session" package andd by deault it does not include a member property
+    next();
 });
 
 /** 3-VIEWS **/

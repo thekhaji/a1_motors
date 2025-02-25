@@ -2,16 +2,15 @@ import { Request, Response } from "express";
 import Errors from "../libs/Errors";
 import { T } from "../libs/types/common";
 import ProductService from "../models/Product.service";
-import { AdminRequest } from "../libs/types/member";
+
 
 
 const productController: T = {};
 const productService = new ProductService;
 
-productController.getAllProducts = async (req: AdminRequest, res: Response) => {
+productController.getAllProducts = async (req:  Request, res: Response) => {
     try {
         console.log("getAllProducts");
-        console.log("req.member:", req.member);
         res.render("products");
         
         
