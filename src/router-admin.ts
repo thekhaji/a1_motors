@@ -19,10 +19,10 @@ routerAdmin.get("/check-me", showroomController.chechAuth);
 
 
 /** Product **/
-routerAdmin.get("/product/all", productController.getAllProducts);
+routerAdmin.get("/product/all", showroomController.verifyShowroom, productController.getAllProducts);
 routerAdmin.post("/product/create", productController.createNewProduct);
 routerAdmin.post("/product/:id", productController.updateChosenProduct);
 
 
 /** USER  **/
-export default routerAdmin;
+export default routerAdmin; 
