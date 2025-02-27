@@ -36,3 +36,21 @@ export interface ProductInput {
     productImages?: string[];
     productViews?: number;
 }
+
+export interface ProductUpdateInput {
+    _id: ObjectId;
+    productStatus?: ProductStatus;
+    productCollection?: ProductCollection;
+    brand?: string;
+    model?: string;
+    year?: number;
+    price?: number;
+    fuelType?: FuelType;
+    mileage?: number;
+    engineCapacity?: number;
+    horsepower?: number;
+    color?: string;
+    productDesc?: string;
+    productImages?: string[];
+    productViews?: number;
+}
