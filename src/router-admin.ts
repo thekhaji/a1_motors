@@ -36,5 +36,5 @@ routerAdmin.post("/product/:id",
     productController.updateChosenProduct);
 
 
-/** USER  **/
+/** USER  **/ 
 export default routerAdmin; 
