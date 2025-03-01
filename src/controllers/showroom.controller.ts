@@ -110,13 +110,16 @@ showroomController.getUsers = async (req: AdminRequest, res: Response) => {
     }
 }
 
-showroomController.updateChosenUser = (req: AdminRequest, res: Response) => {
+showroomController.updateChosenUser =  async (req: AdminRequest, res: Response) => {
     try {
         console.log("updateChosenUser");
-        
+        const result = await memberService.updateChosenUser(req.body);
+
+        res.status(HttpCode.OK).json({ data: result });
     } catch (error) {
         console.log("Error, updateChosenUser :", error);
-        res.redirect("/admin");
+        if(error instanceof Errors) res.status(error.code).json(error);
+        else res.status(Errors.standard.code).json(Errors.standard);
     }
 } 
 

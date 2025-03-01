@@ -41,5 +41,9 @@ routerAdmin.get("/user/all",
     showroomController.verifyShowroom,
     showroomController.getUsers
 );
+routerAdmin.post("/user/edit",
+    showroomController.verifyShowroom,
+    showroomController.updateChosenUser
+);
 
 export default routerAdmin; 
