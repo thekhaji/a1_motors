@@ -98,6 +98,30 @@ showroomController.logout = async (req: AdminRequest, res: Response) => {
     }
 };
 
+showroomController.getUsers = async (req: AdminRequest, res: Response) => {
+    try {
+        console.log("getUsers");
+        const result = await memberService.getUsers();
+
+        res.render("users", { users: result});
+    } catch (error) {
+        console.log("Error, getUsers:", error);
+        res.redirect("/admin/login");
+    }
+}
+
+showroomController.updateChosenUser = (req: AdminRequest, res: Response) => {
+    try {
+        console.log("updateChosenUser");
+        
+    } catch (error) {
+        console.log("Error, updateChosenUser :", error);
+        res.redirect("/admin");
+    }
+} 
+
+
+
 showroomController.chechAuth = async (req: AdminRequest, res: Response) => {
     try {
         console.log("chechAuth");
