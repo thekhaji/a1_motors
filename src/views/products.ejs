@@ -35,11 +35,11 @@
             <thead class="thead-light">
               <tr class="thead-light">
                 <th scope="col">T/r</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Product Type</th>
-                <th scope="col">Product Volume</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Produced Year</th>
+                <th scope="col">Mileage</th>
                 <th scope="col">Product Price</th>
-                <th scope="col">Product Left Count</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
@@ -47,14 +47,14 @@
             <% products.map(function(value, key){ %>
               <tbody style="background: white">
               <td><%=key+1%></td>
-              <td><%= value.productName %></td>
+              <td><%= value.brand %> <%= value.model %></td>
               <td><%= value.productCollection %></td>
-              <td><%= value.productCollection === "DRINK" ? value.productVolume : value.productSize %></td>
-              <td><%= value.productPrice %></td>
-              <td><%= value.productLeftCount %></td>
+              <td><%= value.year %></td>
+              <td><%= value.mileage %></td>
+              <td><%= value.price %> $</td>
               <td>
                 <select class="spec-select new-product-status" id="<%= value._id%>">
-                  <option value="PAUSE" <%= value.productStatus === "PAUSE" ? "selected" : "" %> >PAUSE</option>
+                  <option value="PAUSE" <%= value.productStatus === "PAUSE" ? " " : "" %> >PAUSE</option>
                   <option value="PROCESS" <%= value.productStatus === "PROCESS" ? "selected" : "" %>>PROCESS</option>
                   <option value="DELETE" <%= value.productStatus === "DELETE" ? "selected" : "" %> >DELETE</option>
                 </select>

@@ -45,13 +45,13 @@ showroomController.processSignup = async (req: AdminRequest, res: Response) => {
 
         req.session.member = result;
         req.session.save(function(){
-            res.redirect('/admin/product/all');
+            res.redirect('/product/all');
         });
 
     } catch (error) {
         console.log("Error, processSignup:", error);
         const message = error instanceof Errors ? error.message : Message.SOMETHING_WENT_RONG;
-        res.send(`<script>alert("${message}"); window.location.replace('admin/signup')</script>`)
+        res.send(`<script>alert("${message}"); window.location.replace('/admin/signup')</script>`)
     }
 };
 
