@@ -41,7 +41,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
         });
 
         await productService.createNewProduct(data);
-        res.send(`<script>alert("Sucessfully created!"); window.location.replace('admin/product/all')</script>`)
+        res.send(`<script>alert("Sucessfully created!"); window.location.replace('/admin/product/all')</script>`)
     } catch (error) {
         console.log("Error, createNewProduct:", error);
         const message = error instanceof Errors ? error.message : Message.SOMETHING_WENT_RONG;

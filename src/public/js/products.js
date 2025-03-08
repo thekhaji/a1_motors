@@ -1,17 +1,6 @@
 console.log("Products frontend javascript file");
 
 $(function(){
-    $(".product-collection").on("change", ()=>{
-        const selectedValue = $(".product-collection").val();
-        if (selectedValue === "DRINK"){
-            $("#product-collection").hide();
-            $("#product-volume").show();
-        }
-        else{
-            $("#product-collection").show();
-            $("#product-volume").hide();
-        }
-    })
     $("#process-btn").on("click", ()=>{
         $(".dish-container").slideToggle(500);
         $("#process-btn").css("display", "none");
@@ -46,22 +35,31 @@ $(function(){
 
 
 function validateForm(){
-    const productName = $(".product-name").val(),
+    const brand = $(".brand").val(),
+    model = $(".model").val(),
+    productCollection = $(".product-collection").val(),
+    fuelType = $(".fuelType").val(),
     productStatus = $(".product-status").val(),
     productPrice = $(".product-price").val(),
-    productLeftCount = $(".product-left-count").val(),
-    productCollection = $(".product-collection").val(),
-    // const productSize = $(".product-size").val();
-    // const productVolume = $(".product-volume").val();
+    year = $(".produced-year").val(),
+    engineCapacity = $(".engineCapacity").val(),
+    horsepower = $(".horsepower").val(),
+    color = $(".color").val();
     productDesc = $(".product-desc").val();
     
     if (
-        productName === "" || 
-        productPrice === "" || 
-        productLeftCount === "" || 
+        brand === "" ||
+        model === "" ||
         productCollection === "" ||
-        productDesc === "" ||
-        productStatus === ""
+        fuelType === "" ||
+        productStatus === "" ||
+        productPrice === "" || 
+        year === "" ||
+        engineCapacity === "" ||
+        horsepower === "" ||
+        mileage === "" ||
+        color === "" ||
+        productDesc === ""
     ){
         alert("Please insert all the required fields!");
         return false;
